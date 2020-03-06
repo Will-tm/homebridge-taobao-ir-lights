@@ -41,7 +41,7 @@ LightStrings.prototype = {
 
     setState: function(value, callback) {
         var self = this;
-        ttyWrite(self.path, value?"PWON\r":"PWSTANDBY\r", function(err) {
+        ttyWrite(self.path, value?on:off, function(err) {
             self.active = value;
             self.log("'%s' is now %s", self.name, value ? "on" : "off");
             callback(err);
@@ -72,4 +72,3 @@ LightStrings.prototype = {
         return [service, lightService];
     }
 };
-
