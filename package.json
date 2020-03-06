@@ -1,0 +1,24 @@
+{
+  "name": "homebridge-taobao-ir-lights",
+  "version": "0.0.1",
+  "license": "ISC",
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "author": "@will_tm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "IR",
+    "RS232"
+  ],
+  "description": "",
+  "dependencies": {
+    "serialport": "^4.0.7"
+  }
+}
+git init
