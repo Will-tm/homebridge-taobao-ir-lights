@@ -34,7 +34,7 @@ function LightStrings(log, config) {
     this.model = config["model"] || "Model not available";
     this.serial = config["serial"] || "Non-defined serial";
 
-    self.active = false;
+    this.active = false;
 }
 
 LightStrings.prototype = {
@@ -50,10 +50,8 @@ LightStrings.prototype = {
 
     getState: function (callback) {
         var self = this;
-        ttyRequest(self.path, "PW?\r", function(err, data) {
-            self.log("'%s' is currently %s", self.name, self.active ? "on" : "off");
-            callback(err, self.active);
-        });
+        self.log("'%s' is currently %s", self.name, self.active ? "on" : "off");
+        callback(undefined, self.active);
     },
 
     identify: function (callback) {
@@ -67,7 +65,7 @@ LightStrings.prototype = {
                .setCharacteristic(Characteristic.Model, this.model);
 
         var lightService = new Service.Lightbulb(this.name);
-        switchService.getCharacteristic(Characteristic.On)
+        lightService.getCharacteristic(Characteristic.On)
                      .on('set', this.setState.bind(this))
                      .on('get', this.getState.bind(this));
 
