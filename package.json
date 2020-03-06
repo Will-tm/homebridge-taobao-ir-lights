@@ -1,6 +1,6 @@
 {
   "name": "homebridge-taobao-ir-lights",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "ISC",
   "engines": {
     "node": ">=0.12.0",
@@ -18,6 +18,6 @@
   ],
   "description": "",
   "dependencies": {
-    "serialport": "^4.0.7"
+    "serialport": "^8.0.7"
   }
 }
