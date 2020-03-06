@@ -19,8 +19,12 @@ function ttyWrite(path, data, callback) {
         baudRate: 115200
     }).on('open', function() {
         port.write(data, function(err) {
-            port.close();
-            callback(err);
+            port.write(data, function(err) {
+                port.write(data, function(err) {
+                    port.close();
+                    callback(err);
+                });
+            });
         });
     });
 }
